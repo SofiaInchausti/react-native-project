@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import addQR from '../src/actions';
+import { addQR } from '../src/actions';
 import {useDispatch} from 'react-redux'
 
 
@@ -27,7 +27,7 @@ const ReadQR = () =>{
         setScanned(true);
         dispatch (addQR(data));
         setText(data)
-        console.log('Type:'+ type, 'data', data )
+        // console.log('Type:'+ type, 'data', data )
     }
     //check permition
     if(hasPermission===null){
@@ -41,7 +41,7 @@ const ReadQR = () =>{
         return (
           <View style={styles.container}>
             <Text style={{ margin: 10 }}>No access to camera</Text>
-            <Button title={'Allow Camera'} onPress={() => askForCameraPermission()} />
+            <Button title={'Allow Camera'} onPress={() => askForPermission()} />
           </View>)
       }
     
