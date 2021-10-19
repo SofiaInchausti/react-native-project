@@ -23,15 +23,16 @@ const QRList = () => {
             {qrs ?  
             <View textID="qrs-container">
             <TextInput
+            testID='search-input'
             style={styles.inputText}
             onChangeText={(e) => searchFilter(e)}
             onClear={(e)=> searchFilter('')}
             placeholder='Type here...'
             value={text}
-            />
-            
+            />           
 
-            <FlatList  
+            <FlatList
+            testID='list'  
             data={qrs}
             keyExtractor={(item,index)=>index.toString()}
             renderItem ={({item})=>(
@@ -52,7 +53,7 @@ const QRList = () => {
             )}/>
             </View>
             :
-            <Text>Empty List</Text> }      
+            <Text testID='default-text'>Empty List</Text> }      
     </View>
     )
 
