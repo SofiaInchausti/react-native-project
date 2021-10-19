@@ -49,5 +49,6 @@ export default function reducer(state = initialState, action) {
                         filter:aux
                     
                 };
+                default:return state
     }
 }
