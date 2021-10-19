@@ -8,8 +8,8 @@ import Tabs from './navigation/tabs';
 export default function App() {
   return (
     <Provider store={store}>
-   <NavigationContainer>
-     <Tabs/>
+   <NavigationContainer testID='nav-container'>
+     <Tabs testID='screens'/>
    </NavigationContainer>
     </Provider>
   );
