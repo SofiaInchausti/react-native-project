@@ -27,7 +27,6 @@ const ReadQR = () =>{
         setScanned(true);
         dispatch (addQR(data));
         setText(data)
-        // console.log('Type:'+ type, 'data', data )
     }
     //check permition
     if(hasPermission===null){
@@ -50,12 +49,12 @@ const ReadQR = () =>{
         <View style={styles.container}>
           <View style={styles.barcodebox}>
             <BarCodeScanner
+             testID='scanner'
               onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
               style={{ height: 400, width: 400 }} />
           </View>
-          <Text style={styles.maintext}>{text}</Text>
-    
-          {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+          <Text style={styles.maintext}>{text}</Text>    
+          {scanned && <Button testeID='button' title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
         </View>
       );
     }
