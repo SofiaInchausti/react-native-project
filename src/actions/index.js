@@ -12,3 +12,11 @@ export function filterSearch (text){
         payload:text
     }
 }
+
+export function removeItem (item){
+    return{
+        type:'REMOVE',
+        payload:item
+    }
+           
+}

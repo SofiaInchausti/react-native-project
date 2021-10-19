@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity , FlatList} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity , FlatList, Button} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import { useSelector } from "react-redux"
-import {filterSearch} from '../src/actions'
+import {filterSearch,removeItem} from '../src/actions'
 import { useDispatch } from 'react-redux'
 
 
@@ -14,30 +14,14 @@ const QRList = () => {
         dispatch (filterSearch(text))
         setText(text);
     }
-
-    // const searchFilter=(text)=>{
-    //     if(text){
-    //         const newData=qrs.filter(function(item){
-    //             const itemData = item
-    //                   ? item.toUpperCase()
-    //                   : ''.toUpperCase();
-    //                 const textData = text.toUpperCase();
-    //                 return itemData.indexOf(textData) > -1;
-    //               });
-    //               setFilter(newData);
-    //               setText(text);
-    //             }
-    //     else{
-    //         setFilter(qrs)
-    //         setText(text)
-    //     }
-    // }
-
+    function onRemove (item){
+        dispatch (removeItem(item))
+    }
 
     return(
-        <View>
+        <View style={styles.listContainer}>
             {qrs ?  
-            <View>
+            <View textID="qrs-container">
             <TextInput
             style={styles.inputText}
             onChangeText={(e) => searchFilter(e)}
@@ -45,16 +29,26 @@ const QRList = () => {
             placeholder='Type here...'
             value={text}
             />
+            
 
-            <FlatList 
+            <FlatList  
             data={qrs}
             keyExtractor={(item,index)=>index.toString()}
             renderItem ={({item})=>(
+                <View>
                 <TouchableOpacity>
-                    <View>
-                    <Text>{ item }</Text>    
+                    <View style={styles.itemContainer}>
+                    <Text style={styles.text}>{ item }</Text>
                     </View>
                     </TouchableOpacity>
+                    <TouchableOpacity>
+                    <Text style={styles.buttonText} onPress={()=>onRemove(item)}>
+                      {/* <Icon name="delete" size={30} color="#e33057" /> */}X
+                    </Text>
+                    </TouchableOpacity>
+                </View>
+                    
+                 
             )}/>
             </View>
             :
@@ -65,6 +59,24 @@ const QRList = () => {
     
 }
 const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        marginTop:20
+    },
+    listContainer:{
+        flex:1,
+        flexDirection:'row',
+        marginLeft:20,
+        justifyContent:'flex-start',
+        margin:15
+    },
+    text:{
+        marginLeft:20,
+        marginTop:5,
+        fontWeight:'bold',
+        fontSize:16,
+        
+        },
    inputText: {
       height:30,
       borderWidth:1,
