@@ -8,21 +8,18 @@ const Tab=createBottomTabNavigator();
 
 const Tabs = () => {
     return(
-        <Tab.Navigator style={{backgroundColor:'yellow'}}>
-            <Tab.Screen name='Read QR'component={ReadQR}
+        <Tab.Navigator style={{ backgroundColor: '#FFFFFF'}}>
+            <Tab.Screen style={{ backgroundColor: 'black'}} name='Read QR'component={ReadQR}
              options={{tabBarIcon:({focused})=>(
                  <View style={{alignItems:'center', justifyContent:'center',top:10}}>
                  <Image
                  source={require('../assets/search-qr.png')}
                  resizeMode='contain'
                  style={{
-                     width:25,
-                     height:25,
-                     tintColor:focused? '#e32f45' : '#748c94',
-                  }} />
-                  <Text style={{color:focused ? '#e32f45' : '#748c94',fontSize:12}}>
-                      ReadQR
-                </Text>
+                     width:30,
+                     height:30,
+                }} />
+                 
                 </View>
              ),
                  }}

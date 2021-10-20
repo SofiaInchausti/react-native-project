@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button,Image } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { addQR } from '../src/actions';
 import {useDispatch} from 'react-redux'
@@ -55,6 +55,8 @@ const ReadQR = () =>{
           </View>
           <Text style={styles.maintext}>{text}</Text>    
           {scanned && <Button testeID='button' title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+        <Image source={require('../assets/celScanner.png')}                 
+                 style={styles.scannerImage} />
         </View>
       );
     }
@@ -66,7 +68,8 @@ const ReadQR = () =>{
             justifyContent: 'center',
           },
           maintext: {
-            fontSize: 16,
+            color:'#00008b',
+            fontSize: 18,
             margin: 20,
           },
           barcodebox: {
@@ -77,6 +80,13 @@ const ReadQR = () =>{
             overflow: 'hidden',
             borderRadius: 30,
             backgroundColor: 'tomato'
+          },
+          scannerImage:{
+            width:70,
+            height:70,
+            borderRadius:30
+                    
+
           }
     })
 export default ReadQR;
