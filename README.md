@@ -19,7 +19,7 @@ Run the next command lines to start:
 - Delete QR pressing the trash botton 
 
 Tests:
--Located in the root of the project run in your terminal npm run test
+- Located in the root of the project run in your terminal npm run test
 
 
 <h3>Screen presentation</h3>
