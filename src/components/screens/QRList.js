@@ -13,7 +13,7 @@ const QRList = () => {
 
     function searchFilter(e) {
         dispatch(filterSearch(e));
-        setText(text);
+        setText(e);
     }
     function onRemove(item) {
         dispatch(removeItem(item));
