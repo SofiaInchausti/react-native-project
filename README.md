@@ -19,7 +19,7 @@ Run the next command lines to start:
 - Delete QR pressing the trash botton 
 
 <h3>Screen presentation</h3>
-<img src='screnshot/start.png'/>
+<img width="150" src='screenshot/start.png'/>
 
 
 
