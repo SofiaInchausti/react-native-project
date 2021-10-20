@@ -17,8 +17,10 @@ Run the next command lines to start:
 - Allow your camera to scan different codes. Create your own QR codes to test using this URL: https://www.qr-code-generator.com/
 - Go to the directory QR List to see the complete scanner list
 - Delete QR pressing the trash botton 
+
 Tests:
 -Located in the root of the project run in your terminal npm run test
+
 
 <h3>Screen presentation</h3>
 <img width="150" src='screenshot/start.png'/>
