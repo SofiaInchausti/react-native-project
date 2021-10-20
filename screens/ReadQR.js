@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, Button,Image } from 'react-native';
+import { StyleSheet, Text, View, Button,Image, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { addQR } from '../src/actions';
 import {useDispatch} from 'react-redux'
@@ -44,7 +44,7 @@ const ReadQR = () =>{
           </View>)
       }
     
-      // Return the View
+      
       return (
         <View style={styles.container}>
           <View style={styles.barcodebox}>
@@ -53,10 +53,16 @@ const ReadQR = () =>{
               onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
               style={{ height: 400, width: 400 }} />
           </View>
-          <Text style={styles.maintext}>{text}</Text>    
-          {scanned && <Button testeID='button' title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
-        <Image source={require('../assets/celScanner.png')}                 
-                 style={styles.scannerImage} />
+          <Text style={styles.scanText}>{text}</Text>    
+          {scanned && 
+          <TouchableOpacity testeID='button' onPress={() => setScanned(false)} >
+            <View>
+              <Text style={styles.questionText}>Scan again?</Text>
+              <Image source={require('../assets/celScanner.png')}                 
+                 style={styles.scannerImage}/>              
+            </View>
+            </TouchableOpacity>
+        }
         </View>
       );
     }
@@ -67,10 +73,17 @@ const ReadQR = () =>{
             alignItems: 'center',
             justifyContent: 'center',
           },
-          maintext: {
+         questionText: {
             color:'#00008b',
+            fontSize: 16,     
+            
+            
+          },
+          scanText:{
             fontSize: 18,
             margin: 20,
+            color:'tomato',
+            fontWeight:'bold'
           },
           barcodebox: {
             alignItems: 'center',

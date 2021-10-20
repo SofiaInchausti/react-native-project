@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity , FlatList, Button} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { useSelector } from "react-redux"
 import {filterSearch,removeItem} from '../src/actions'
 import { useDispatch } from 'react-redux'
+import {AntDesign } from '@expo/vector-icons';
+
 
 
 const QRList = () => {
@@ -19,8 +21,8 @@ const QRList = () => {
     }
 
     return(
-        <View style={styles.listContainer}>
-            {qrs ?  
+        <View style={styles.container}>
+            {qrs && qrs.length > 0 ?  
             <View textID="qrs-container">
             <TextInput
             testID='search-input'
@@ -36,7 +38,7 @@ const QRList = () => {
             data={qrs}
             keyExtractor={(item,index)=>index.toString()}
             renderItem ={({item})=>(
-                <View>
+                <View style={styles.contenedor}>
                 <TouchableOpacity>
                     <View style={styles.itemContainer}>
                     <Text style={styles.text}>{ item }</Text>
@@ -44,7 +46,7 @@ const QRList = () => {
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <Text style={styles.buttonText} onPress={()=>onRemove(item)}>
-                      {/* <Icon name="delete" size={30} color="#e33057" /> */}X
+                    <AntDesign style={styles.buttonDelete} name="delete" size={20} color="tomato" />
                     </Text>
                     </TouchableOpacity>
                 </View>
@@ -53,7 +55,7 @@ const QRList = () => {
             )}/>
             </View>
             :
-            <Text testID='default-text'>Empty List</Text> }      
+            <Text style={styles.textEmpty} testID='default-text'>Empty List</Text> }      
     </View>
     )
 
@@ -64,19 +66,30 @@ const styles = StyleSheet.create({
         flex:1,
         marginTop:20
     },
-    listContainer:{
-        flex:1,
-        flexDirection:'row',
-        marginLeft:20,
-        justifyContent:'flex-start',
-        margin:15
+    textEmpty:{
+        color:'#00008b',
+        fontSize: 18,
+        margin: 20,
     },
     text:{
-        marginLeft:20,
-        marginTop:5,
+        marginLeft:40,
         fontWeight:'bold',
         fontSize:16,
+        marginRight:10,
+        color:"#2E2E30"
         
+        },
+        contenedor:{
+            backgroundColor:'#D3D1E4',
+            margin:5,
+            padding:10,
+            flexDirection: "row",
+            flexWrap: "wrap"
+        },
+        buttonDelete:{
+            // backgroundColor:'blue',
+            
+
         },
    inputText: {
       height:30,
