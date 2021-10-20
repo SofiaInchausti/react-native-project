@@ -11,9 +11,9 @@ const QRList = () => {
     const [text, setText] = useState('');
     const dispatch = useDispatch();
 
-    function searchFilter(e) {
-        dispatch(filterSearch(e));
-        setText(e);
+    function searchFilter(elem) {
+        dispatch(filterSearch(elem));
+        setText(elem);
     }
     function onRemove(item) {
         dispatch(removeItem(item));
