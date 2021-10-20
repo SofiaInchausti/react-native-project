@@ -8,7 +8,7 @@ let component;
 
 describe("<App />", () => {
     beforeEach(() => {
-        component = render( < App / > );
+        component = render( < App /> );
     });
     it("It should render correctly", () => {
         expect(component).toBeDefined()

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import ReadQR from '../screens/ReadQR'
 import QRList from '../screens/QRList'
-import { NavigationContainer } from '@react-navigation/native';
+
 
 const Tab=createBottomTabNavigator();
 
@@ -15,7 +15,7 @@ const Tabs = () => {
              options={{tabBarIcon:()=>(
                  <View style={{alignItems:'center', justifyContent:'center',top:10}}>
                  <Image
-                 source={require('../assets/search-qr.png')}
+                 source={require('../../../assets/search-qr.png')}
                  resizeMode='contain'
                  style={styles.qrReader} />
                  
@@ -27,7 +27,7 @@ const Tabs = () => {
             options={{tabBarIcon:()=>(
             <View style={{alignItems:'center', justifyContent:'center',top:10}}>
                  <Image
-                 source={require('../assets/list-icon.png')}
+                 source={require('../../../assets/list-icon.png')}
                  resizeMode='contain'
                  style={styles.listIcon} />
                  

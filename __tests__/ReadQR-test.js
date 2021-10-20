@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import {Provider} from 'react-redux'
 import reducer from '../src/reducer/index'
 import {render} from "@testing-library/react-native"
-import ReadQR from "../screens/ReadQR"
+import ReadQR from "../src/components/screens/ReadQR"
 
 
 const store=createStore(reducer,{status:'default'})

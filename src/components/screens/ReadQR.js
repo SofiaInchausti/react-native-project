@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, Button,Image, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { addQR } from '../src/actions';
+import { addQR } from '../../actions';
 import {useDispatch} from 'react-redux'
 
 

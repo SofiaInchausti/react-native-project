@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native'
 import {Provider} from 'react-redux'
 import store from './src/store/index'
-import Tabs from './navigation/tabs';
+import Tabs from './src/components/navigation/tabs';
 
 export default function App() {
   return (

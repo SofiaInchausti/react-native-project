@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity , FlatList, Button} from 'react-native';
 import React, {useState} from 'react';
 import { useSelector } from "react-redux"
-import {filterSearch,removeItem} from '../src/actions'
+import {filterSearch,removeItem} from '../../actions'
 import { useDispatch } from 'react-redux'
 import {AntDesign } from '@expo/vector-icons';
 

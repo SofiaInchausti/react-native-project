@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import {Provider} from 'react-redux'
 import reducer from '../src/reducer/index'
 import {render} from "@testing-library/react-native"
-import QRList from "../screens/QRList"
+import QRList from "../src/components/screens/QRList"
 
 const store=createStore(reducer,{status:'default'})
 
